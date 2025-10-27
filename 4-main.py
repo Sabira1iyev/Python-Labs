@@ -281,7 +281,7 @@ def func():
     print(f"global veriable {glob1}")
 func()
 
-'''
+--------------
 
 from typing import List
 
@@ -296,3 +296,6 @@ def func(string:str,array:list)->str:
 lst = [i for i in range(10)]
 print(func(f"masivis elementebis jami aris ", lst))
 print(type(x))
+
+'''
+

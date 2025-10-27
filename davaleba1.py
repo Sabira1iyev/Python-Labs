@@ -1,3 +1,6 @@
+
+
+
 def procesis_data(data, gare_gasaxebi = None, shida_gasaxebi = None, condition = None):
 
     if gare_gasaxebi is None or gare_gasaxebi not in data:
