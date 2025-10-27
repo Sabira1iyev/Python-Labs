@@ -1,9 +1,10 @@
 import os
 
-root = "./dir"  
+root = "./dir"  # მთავარი დირექტორია
 level1 = {}
 level2 ={}
 
+ # ფოლტერების გავლა და ფაილების შეგროვება
 for root_dir, dirs, files in os.walk(root):
     parts = root_dir.split(os.sep)
     if len(parts) >= 4:
@@ -22,6 +23,7 @@ print("pirveli magaliti: ")
 for k in list(level1.keys())[:2]:
     print(k, "->", level1[k][:1], "...")
 
+# ფაილებიდან 9 ნიშნა რიცხვების ამოღება
 for outer, files in level1.items():
     inner = {}
     for l2name, rel_path in files:
@@ -45,6 +47,7 @@ print("meore magaliti: ")
 for k in list(level2.keys())[:1]:
     print(k, "->", list(level2[k].items())[:1])
 
+# ყველაზე მეტი რიცხვების მქონე ფაილი
 max_len = 0
 max_keys = []
 
@@ -64,7 +67,8 @@ if max_len > 0:
 else:
     print("9 nishna ricxvebi ve moidzebna")
 
-def shiddze_iyopa(num):
+# ფუნქცია 7-ზე იყოფა თუ არა
+def shviddze_iyopa(num):
     s = str(num)
     if len(s) != 9:
         return False
@@ -75,17 +79,17 @@ def shiddze_iyopa(num):
         return total % 7 == 0
 
 print("funqciis testi: ")
-print("123456789: ", shiddze_iyopa(123456789))
-print("177777777: ", shiddze_iyopa(177777777))
+print("123456789: ", shviddze_iyopa(123456789))
+print("177777777: ", shviddze_iyopa(177777777))
 
-
+ # ყველაზე მეტო 7-ზე განაყოფი რიცხვების მქონე ფაილი
 best = 0
 best_keys = []
 for out, inn in level2.items():
     for k, vals in inn.items():
         cnt = 0
         for n in vals:
-            if shiddze_iyopa(n):
+            if shviddze_iyopa(n):
                 cnt += 1
         if cnt > best:
             best = cnt
