@@ -1,6 +1,6 @@
 import os
 
-root = "./dir"
+root = "./dir"  
 level1 = {}
 level2 ={}
 
