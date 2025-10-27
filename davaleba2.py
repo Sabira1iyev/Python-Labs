@@ -13,3 +13,4 @@ for root_dir, dirs, files in os.walk(root):
         if files:
             if key not in level1:
                 level1[key] = []
+                
