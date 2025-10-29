@@ -88,10 +88,31 @@ print(s)
 f.close()
 
 
-'''
+------------
 
 f = open(file = 'data_binary.txt', mode = 'w')
-x = ('hello')
+x = ("hello")
 y = f.write(x);
 print('Count of recorded bytes is ', y)
+f.close()
+
+---------
+
+f = open(file = 'data_binary.txt', mode = 'r')
+s = f.read()
+print(s)
+f.close()
+
+
+'''
+
+f = open(file='data_txt.txt', mode = 'w', encoding = 'utf-8')
+lst = ['es ' , 'striqoni ', 'chaiwereba ', 'failshi ']
+lst1 = ['es ', 'striqoni ', 'chaiwereba ', 'failshi']
+f.writelines(lst)
+f.writelines(lst1)
+f.close()
+
+f = open(file = 'data_txt.txt', mode = 'r', encoding = 'utf-8')
+s = f.read()
 f.close()
