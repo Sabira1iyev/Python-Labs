@@ -56,7 +56,7 @@ y = f.write(x);
 print('Count of recored bytes is ', y)
 f.close()
 
-'''
+------------
 
 # TEXT MODE
 
@@ -79,3 +79,19 @@ r = open('data_binary.txt', mode='rb')
 data = r.read()
 print(data)
 r.close()
+
+------
+
+f = open(file = 'data_txt.txt', mode = 'r')
+s = f.read()
+print(s)
+f.close()
+
+
+'''
+
+f = open(file = 'data_binary.txt', mode = 'w')
+x = ('hello')
+y = f.write(x);
+print('Count of recorded bytes is ', y)
+f.close()
