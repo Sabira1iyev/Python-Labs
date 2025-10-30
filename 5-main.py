@@ -104,7 +104,7 @@ print(s)
 f.close()
 
 
-'''
+-----------------
 
 f = open(file='data_txt.txt', mode = 'w', encoding = 'utf-8')
 lst = ['es ' , 'striqoni ', 'chaiwereba ', 'failshi ']
@@ -116,3 +116,46 @@ f.close()
 f = open(file = 'data_txt.txt', mode = 'r', encoding = 'utf-8')
 s = f.read()
 f.close()
+
+
+------------
+
+
+f = open(file = "data_binary.txt", mode = 'wb')
+lst = ['es '.encode('utf-8'), 'striqoni '.encode('utf-8'),
+       'chaiwereba '.encode('utf-8'), 'failshi '.encode('utf-8')]
+y = f.writelines(lst);
+
+----------
+
+f = open(file = 'data_txt.txt', mode ='r', encoding='utf-8')
+print('f file is open in write mode: ', f.writable())
+
+
+------------
+
+f = open(file= 'data_txt.txt', mode = 'r', encoding='utf-8')
+print('read file fully: ', f.read())
+f.close()
+f = open(file='data_txt.txt', mode = 'rb')
+st = f.read()
+print('read only 7 byte', st.decode());
+
+
+-------------
+
+
+arr = []
+for  i in range(1,11,1):
+    f = open(file = 'data_txt.txt', mode='r', encoding='utf-8')
+    print('read only 7 byte', f.read(i*7));
+    arr.append(f.read(7))
+
+    '''
+
+
+f = open(file = 'data_txt.txt', mode='r', encoding='utf-8')
+print('first: using readline : ', f.readline())
+print('second: using readline : ', f.readline())
+print('third: using readline : ', f.readline())
+print('fourth: using readline : ', f.readline())
