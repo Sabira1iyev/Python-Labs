@@ -163,3 +163,5 @@ print('fourth: using readline : ', f.readline())
  '''
 
 print("hello world")
+
+print("my name is sabir, tomorrow  i have exam")
