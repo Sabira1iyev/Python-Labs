@@ -160,8 +160,12 @@ print('second: using readline : ', f.readline())
 print('third: using readline : ', f.readline())
 print('fourth: using readline : ', f.readline())
 
+------------
+
+#print("hello world")
+
+#print("my name is sabir, tomorrow  i have exam")
+
+
  '''
 
-print("hello world")
-
-print("my name is sabir, tomorrow  i have exam")
