@@ -151,7 +151,7 @@ for  i in range(1,11,1):
     print('read only 7 byte', f.read(i*7));
     arr.append(f.read(7))
 
-    '''
+   ------------------
 
 
 f = open(file = 'data_txt.txt', mode='r', encoding='utf-8')
@@ -159,3 +159,7 @@ print('first: using readline : ', f.readline())
 print('second: using readline : ', f.readline())
 print('third: using readline : ', f.readline())
 print('fourth: using readline : ', f.readline())
+
+ '''
+
+print("hello world")
