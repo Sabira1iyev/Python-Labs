@@ -20,9 +20,8 @@ class EVSalesRecord(ElectricVehicleRecord):
 
     def display(self):
         print(f"{self.region}: {self.parameter}: {self.powertrain}:{self.year}: {self.unit}: {self.value}")
-    @staticmethod
+    @staticmethod 
     def recordebis_analizi(records, **filters):
-
         result = []
         for rec in records:
             match = True
