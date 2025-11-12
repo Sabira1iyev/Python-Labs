@@ -88,10 +88,10 @@ from zipfile import ZipFile
 
 
 
-with ZipFile("cars.zip", "r") as z:
-    print(z.namelist())
+# with ZipFile("cars.zip", "r") as z:
+#     print(z.namelist())
 
-with z.open("file1.txt") as f:
-    for line in f:
-        print(line.decode('utf-8').strip())
+# with z.open("file1.txt") as f:
+#     for line in f:
+#         print(line.decode('utf-8').strip())
 
