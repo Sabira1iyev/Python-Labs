@@ -48,7 +48,6 @@ class EVSalesRecord(ElectricVehicleRecord):
         return result
 
 class EVStockShareRecord(ElectricVehicleRecord):
-    @staticmethod
     def display(self):
         print(f"{self.year} - {self.region} - {self.parameter} - {self.powertrain} - {self.value} - {self.unit}")
 
@@ -93,4 +92,4 @@ if __name__ == "__main__":
     )
 
     filtered2 = [rec for rec in filtered2 if rec.value<1]
-    print(f"EV sales, BEV, Vehicles value <1 rekistraciebis raodenoba: {len(filtered2)}")
+    print(f"EV sales, BEV, Vehicles value < 1 rekistraciebis raodenoba: {len(filtered2)}")
