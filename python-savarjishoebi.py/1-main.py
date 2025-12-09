@@ -30,15 +30,16 @@ import math
     
 # print("carpim: ", carpim)
 
-arr = []
-for i in range(100,150):
-    if(i % 5 == 0):
-        arr.append(i)
-arr2 = []
-for x in arr:
-    arr2.append(x**2)
+# arr = []
+# for i in range(100,150):
+#     if(i % 5 == 0):
+#         arr.append(i)
+# arr2 = []
+# for x in arr:
+#     arr2.append(x**2)
 
-count = 0
-for t in arr2:
-    count += t
-print("sum: ", count)
+# count = 0
+# for t in arr2:
+#     count += t
+# print("sum: ", count)
+
