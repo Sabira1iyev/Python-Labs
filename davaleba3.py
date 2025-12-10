@@ -36,7 +36,7 @@ class KramerProcess:
         if self.lines is None or self.n is None:
             raise RuntimeError("jer unda gamoidzaxos read_file funqcia")
         n = self.n
-        varnames = [f'x{x+1}' for i in range(n)]
+        varnames = [f'x{i+1}' for i in range(n)]
         A = np.zeros((n, n), dtype=float)
         B = np.zeros((n, 1), dtype=float)
 
@@ -89,19 +89,48 @@ class KramerProcess:
     def summary(self)-> str:
         lines = [f'file: {self.filename}', f'ucnobebi (n): {self.n}', f'det(A): {self.detA}']
         if self.solution is None:
-            lines.append('კრამერის მეთოდი მიუდეგარია (det(A) ~ 0)')
+            lines.append('krameris metodi miudegaris')
         else:
-            lines.append(f'ნორმა(solution-ის): {self.norm}')
+            lines.append(f'norma(solution-is): {self.norm}')
         return '\n'.join(lines)
 
 
-    def _count_token_repeats(self, tokens: List[str], varnames:str) -> Tuple[int,int]:
-        
-        pos = tokens.count(varname)
-        neg = tokens.count('-', + varname)
-        if self.lines is None or self.n is None:
-            raise RuntimeError("pirvelad unda gamoidzaxot read_filei")
-        
-        n = self.n
-        varnames = [f'x {i+1}' for i in range(n)]
-        
+def list_in_files_in_dir(directory:str = '.') -> List[str]:
+    all_files = os.listdir(directory)
+    in_files = [f for f in all_files if f.endswith('.in')]
+    in_files.sort()
+    return in_files
+
+def main_process_all(directory:str = '.') -> None:
+    files = list_in_files_in_dir(directory)
+    print(f'napovi .in failebi:{len(files)}')
+    for fn in files:
+        print(' -', fn)
+    
+    processes = [KramerProcess(os.path.join(directory, fn)) for fn in files]
+
+    for p in processes:
+        try:
+            p.run_all()
+            print('\n-----')
+            print(p.summary())
+        except Exception as e:
+            print(f'shecdoma damushavebisas {p.filename}: {e}')
+
+    max_norm = -1.0
+    max_file = None
+
+    for p in processes:
+        if p.norm is not None and p.norm > max_norm:
+            max_norm = p.norm
+            max_file = p.filename
+    
+    if max_file is not None:
+        print(f'\n umaglesi normis mqone faili: {max_file} (norm = {max_norm})')
+    else:
+        print('\n arcerti failistvis ver moidzebna krameris moqmedi amoxsna')
+
+if __name__ == '__main__':
+    main_process_all('.')
+
+
