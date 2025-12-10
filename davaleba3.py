@@ -96,6 +96,9 @@ class KramerProcess:
 
 
     def _count_token_repeats(self, tokens: List[str], varnames:str) -> Tuple[int,int]:
+        
+        pos = tokens.count(varname)
+        neg = tokens.count('-', + varname)
         if self.lines is None or self.n is None:
             raise RuntimeError("pirvelad unda gamoidzaxot read_filei")
         
