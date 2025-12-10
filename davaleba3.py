@@ -28,3 +28,10 @@ class KramerProcess:
         self.n = len(self.lines)
 
 
+    def _count_token_repeats(self, tokens: List[str], varnames:str) -> Tuple[int,int]:
+        if self.lines is None or self.n is None:
+            raise RuntimeError("pirvelad unda gamoidzaxot read_filei")
+        
+        n = self.n
+        varnames = [f'x {i+1}' for i in range(n)]
+        
