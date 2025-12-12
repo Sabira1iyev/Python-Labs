@@ -16,17 +16,12 @@ class KramerProcess:
 
 
     def read_file(self) -> None:
-        try:
-            self.lines = np.loadtxt(self.filename, dtype=str, delimiter='\n', comments = None)
-        except Exception:
-            with open(self.filename, 'r', encoding="utf-8") as f:
-                raw = f.read().splitlines()
-            self.lines = np.array(raw, dtype=str)
+        with open(self.filename, 'r', encoding="utf-8") as f:
+            raw = [line.strip() for line in f.readlines() if line.strip()]
         
-        if isinstance(self.lines,str):
-            self.lines = np.array([self.lines],dtype = str)
+        self.lines = np.array(raw, dtype = str)
         self.n = len(self.lines)
-    
+     
     def _count_token_repeats(self, tokens: List[str], varname:str) -> Tuple[int,int]:
         pos = tokens.count(varname)
         neg = tokens.count('-' + varname)
@@ -54,7 +49,7 @@ class KramerProcess:
         self.A = A
         self.B = B
     
-    def compute_determinants_and_solve(self, eps_zero: float = 1e-12) -> None:
+    def determinatis_gamotvla(self, eps_zero: float = 1e-12) -> None:
 
         if self.A is None or self.B is None:
             raise RuntimeError("jer unda gamoidzaxos build argumented matrix funqcia")
@@ -84,7 +79,7 @@ class KramerProcess:
     def run_all(self) -> None:
         self.read_file()
         self.build_augmented_matrix()
-        self.compute_determinants_and_solve()
+        self.determinatis_gamotvla()
     
     def summary(self)-> str:
         lines = [f'file: {self.filename}', f'ucnobebi (n): {self.n}', f'det(A): {self.detA}']
